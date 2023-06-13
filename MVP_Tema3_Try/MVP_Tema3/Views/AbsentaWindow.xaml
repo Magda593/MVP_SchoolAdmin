@@ -1,0 +1,44 @@
+﻿<Window x:Class="MVP_Tema3.Views.AbsentaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVP_Tema3.Views"
+        xmlns:convert="clr-namespace:MVP_Tema3.Convertors" 
+        xmlns:mv="clr-namespace:MVP_Tema3.ViewModels"
+        mc:Ignorable="d"
+        Title="AbsentaWindow" Height="343.6" Width="411.348">
+    <Window.DataContext>
+        <mv:AbsentaVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:AbsentaConvert x:Key="absentaConvert" />
+        </StackPanel.Resources>
+        <WrapPanel>
+            <Button Content="Adauga" Margin="15" Width="100" Height="30" 
+                    Command="{Binding AddCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource absentaConvert}">
+                        <Binding ElementName="txtDataAbsenta" Path="Text"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+            <Button Content="Modifica" Margin="15" Width="100" Height="30" Command="{Binding UpdateCommand}"
+                    CommandParameter="{Binding ElementName=absentaGrid, Path=SelectedItem}"/>
+            <Button Content="Sterge" Margin="15" Width="100" Height="30" Command="{Binding DeleteCommand}"
+                    CommandParameter="{Binding ElementName=absentaGrid, Path=SelectedItem}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Data Absenta:</Label>
+            <TextBox Name="txtCNP" Width="200" Text ="{Binding ElementName=absentaGrid, 
+                Path=SelectedItem.DataAbsenta, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <DataGrid Name="absentaGrid" AutoGenerateColumns="False" Margin="0,15,0,0" Height="185"
+                  ItemsSource="{Binding AbsenteList}" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data Absenta" Binding="{Binding DataAbsenta}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>

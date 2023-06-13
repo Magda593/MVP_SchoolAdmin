@@ -1,0 +1,70 @@
+﻿<Window x:Class="MVP_Tema3.Views.StudentPageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVP_Tema3.Views" xmlns:convert="clr-namespace:MVP_Tema3.Convertors" xmlns:mv="clr-namespace:MVP_Tema3.ViewModels"
+        mc:Ignorable="d"
+        Title="StudentPageWindow" Height="450" Width="411.348">
+    <Window.DataContext>
+        <mv:StudentVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:StudentConvert x:Key="studentConvert" />
+        </StackPanel.Resources>
+        <WrapPanel>
+            <Button Content="Adauga" Margin="15" Width="100" Height="30" 
+                    Command="{Binding AddCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource studentConvert}">
+                        <Binding ElementName="txtCNP" Path="Text"/>
+                        <Binding ElementName="txtSex" Path="Text"/>
+                        <Binding ElementName="txtNume" Path="Text"/>
+                        <Binding ElementName="txtPrenume" Path="Text"/>
+                        <Binding ElementName="txtClasa" Path="Text"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+            <Button Content="Modifica" Margin="15" Width="100" Height="30" Command="{Binding UpdateCommand}"
+                    CommandParameter="{Binding ElementName=studentGrid, Path=SelectedItem}"/>
+            <Button Content="Sterge" Margin="15" Width="100" Height="30" Command="{Binding DeleteCommand}"
+                    CommandParameter="{Binding ElementName=studentGrid, Path=SelectedItem}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">CNP:</Label>
+            <TextBox Name="txtCNP" Width="200" Text ="{Binding ElementName=studentGrid, 
+                Path=SelectedItem.CNP, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Sex:</Label>
+            <TextBox Name="txtSex" Width="200" Text ="{Binding ElementName=studentGrid, 
+                Path=SelectedItem.Sex, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Nume:</Label>
+            <TextBox Name="txtNume" Width="200" Text ="{Binding ElementName=studentGrid, 
+                Path=SelectedItem.Nume, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Prenume:</Label>
+            <TextBox Name="txtPrenume" Width="200" Text ="{Binding ElementName=studentGrid, 
+                Path=SelectedItem.Prenume, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Clasa:</Label>
+            <TextBox Name="txtClasa" Width="200" Text ="{Binding ElementName=studentGrid, 
+                Path=SelectedItem.Clasa, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <DataGrid Name="studentGrid" AutoGenerateColumns="False" Margin="0,15,0,0" Height="185"
+                  ItemsSource="{Binding StudentsList}" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="CNP" Binding="{Binding CNP}"/>
+                <DataGridTextColumn Header="sex" Binding="{Binding Sex}"/>
+                <DataGridTextColumn Header="Nume" Binding="{Binding Nume}"/>
+                <DataGridTextColumn Header="Prenume" Binding="{Binding Prenume}"/>
+                <DataGridTextColumn Header="Clasa" Binding="{Binding Clasa}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>

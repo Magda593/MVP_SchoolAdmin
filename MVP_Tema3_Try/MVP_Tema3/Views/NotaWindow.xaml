@@ -1,0 +1,58 @@
+﻿<Window x:Class="MVP_Tema3.Views.NotaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVP_Tema3.Views"
+        xmlns:convert="clr-namespace:MVP_Tema3.Convertors" 
+        xmlns:mv="clr-namespace:MVP_Tema3.ViewModels"
+        mc:Ignorable="d"
+        Title="NotaWindow" Height="450" Width="411.348">
+    <Window.DataContext>
+        <mv:NotaVM/>
+    </Window.DataContext>
+    <StackPanel>
+        <StackPanel.Resources>
+            <convert:NotaConvert x:Key="notaConvert" />
+        </StackPanel.Resources>
+        <WrapPanel>
+            <Button Content="Adauga" Margin="15" Width="100" Height="30" 
+                    Command="{Binding AddCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource notaConvert}">
+                        <Binding ElementName="txtDataNota" Path="Text"/>
+                        <Binding ElementName="txtValoare" Path="Text"/>
+                        <Binding ElementName="txtTeza" Path="Text"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+            <Button Content="Modifica" Margin="15" Width="100" Height="30" Command="{Binding UpdateCommand}"
+                    CommandParameter="{Binding ElementName=notaGrid, Path=SelectedItem}"/>
+            <Button Content="Sterge" Margin="15" Width="100" Height="30" Command="{Binding DeleteCommand}"
+                    CommandParameter="{Binding ElementName=notaGrid, Path=SelectedItem}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Data nota:</Label>
+            <TextBox Name="txtCNP" Width="200" Text ="{Binding ElementName=notaGrid, 
+                Path=SelectedItem.DataNota, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Valoare:</Label>
+            <TextBox Name="txtSex" Width="200" Text ="{Binding ElementName=notaGrid, 
+                Path=SelectedItem.Valoare, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <WrapPanel Margin="0,15,0,0">
+            <Label Width="150" FontSize="15">Teza:</Label>
+            <TextBox Name="txtNume" Width="200" Text ="{Binding ElementName=notaGrid, 
+                Path=SelectedItem.Teza, UpdateSourceTrigger=PropertyChanged}"/>
+        </WrapPanel>
+        <DataGrid Name="studentGrid" AutoGenerateColumns="False" Margin="0,15,0,0" Height="185"
+                  ItemsSource="{Binding NoteList}" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data nota" Binding="{Binding DataNota}"/>
+                <DataGridTextColumn Header="Valoare" Binding="{Binding Valoare}"/>
+                <DataGridTextColumn Header="Teza" Binding="{Binding Teza}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>

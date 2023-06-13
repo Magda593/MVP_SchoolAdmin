@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C71272A-3F16-476C-94EB-8406E64EC4BB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MVP_Tema3</RootNamespace>
+    <AssemblyName>MVP_Tema3</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Convertors\AbsentaConvert.cs" />
+    <Compile Include="Convertors\AbsentaStudentConvert.cs" />
+    <Compile Include="Convertors\An_studiuConvert.cs" />
+    <Compile Include="Convertors\ClasaConvert.cs" />
+    <Compile Include="Convertors\MaterieConvert.cs" />
+    <Compile Include="Convertors\MedieConvert.cs" />
+    <Compile Include="Convertors\NotaConvert.cs" />
+    <Compile Include="Convertors\NotaStudentConvert.cs" />
+    <Compile Include="Convertors\ProfesorConvert.cs" />
+    <Compile Include="Convertors\SpecializareConvert.cs" />
+    <Compile Include="Convertors\StudentConvert.cs" />
+    <Compile Include="Exceptions\AgendaExceptions.cs" />
+    <Compile Include="Views\AbsentaStudentWindow.xaml.cs">
+      <DependentUpon>AbsentaStudentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminWindow.xaml.cs">
+      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiriginteWindow.xaml.cs">
+      <DependentUpon>DiriginteWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaterieStudent.xaml.cs">
+      <DependentUpon>MaterieStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaterieWindow.xaml.cs">
+      <DependentUpon>MaterieWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MedieWindow.xaml.cs">
+      <DependentUpon>MedieWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotaStudentWindow.xaml.cs">
+      <DependentUpon>NotaStudentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotaWindow.xaml.cs">
+      <DependentUpon>NotaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfesorWindow.xaml.cs">
+      <DependentUpon>ProfesorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrpfesprPageWindow.xaml.cs">
+      <DependentUpon>PrpfesprPageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecializareWindow.xaml.cs">
+      <DependentUpon>SpecializareWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentPageWindow.xaml.cs">
+      <DependentUpon>StudentPageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentWindow.xaml.cs">
+      <DependentUpon>StudentWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\AbsentaStudentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AbsentaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\An_studiuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClasaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\BusinessLogicLayer\AbsentaBLL.cs" />
+    <Compile Include="Models\BusinessLogicLayer\An_studiuBLL.cs" />
+    <Compile Include="Models\BusinessLogicLayer\ClasaBLL.cs" />
+    <Compile Include="Models\BusinessLogicLayer\MaterieBLL.cs" />
+    <Compile Include="Models\BusinessLogicLayer\Materie_clasaBLL.cs" />
+    <Compile Include="Models\BusinessLogicLayer\MedieBLL.cs" />
+    <Compile Include="Models\BusinessLogicLayer\NotaBLL.cs" />
+    <Compile Include="Models\BusinessLogicLayer\ProfesorBLL.cs" />
+    <Compile Include="Models\BusinessLogicLayer\SpecializareBLL.cs" />
+    <Compile Include="Models\BusinessLogicLayer\StudentBLL.cs" />
+    <Compile Include="Models\DataAccessLayer\AbsentaDAL.cs" />
+    <Compile Include="Models\DataAccessLayer\An_studiuDAL.cs" />
+    <Compile Include="Models\DataAccessLayer\ClasaDAL.cs" />
+    <Compile Include="Models\DataAccessLayer\DALHelper.cs" />
+    <Compile Include="Models\DataAccessLayer\MaterieDAL.cs" />
+    <Compile Include="Models\DataAccessLayer\Materie_clasaDAL.cs" />
+    <Compile Include="Models\DataAccessLayer\MedieDAL.cs" />
+    <Compile Include="Models\DataAccessLayer\NotaDAL.cs" />
+    <Compile Include="Models\DataAccessLayer\ProfesorDAL.cs" />
+    <Compile Include="Models\DataAccessLayer\SpecializareDAL.cs" />
+    <Compile Include="Models\DataAccessLayer\StudentDAL.cs" />
+    <Compile Include="Models\EntityLayer\Absenta.cs" />
+    <Compile Include="Models\EntityLayer\An_studiu.cs" />
+    <Compile Include="Models\EntityLayer\BasePropertyChanged.cs" />
+    <Compile Include="Models\EntityLayer\Clasa.cs" />
+    <Compile Include="Models\EntityLayer\Materie.cs" />
+    <Compile Include="Models\EntityLayer\Materie_clasa.cs" />
+    <Compile Include="Models\EntityLayer\Medie.cs" />
+    <Compile Include="Models\EntityLayer\Nota.cs" />
+    <Compile Include="Models\EntityLayer\Profesor.cs" />
+    <Compile Include="Models\EntityLayer\Specializare.cs" />
+    <Compile Include="Models\EntityLayer\Student.cs" />
+    <Compile Include="ViewModels\AbsentaVM.cs" />
+    <Compile Include="ViewModels\An_studiuVM.cs" />
+    <Compile Include="ViewModels\ClasaVM.cs" />
+    <Compile Include="ViewModels\Commands\RelayCommands.cs" />
+    <Compile Include="ViewModels\MaterieVM.cs" />
+    <Compile Include="ViewModels\Materie_clasaVM.cs" />
+    <Compile Include="ViewModels\MedieVM.cs" />
+    <Compile Include="ViewModels\NotaVM.cs" />
+    <Compile Include="ViewModels\ProfesorVM.cs" />
+    <Compile Include="ViewModels\SpecializareVM.cs" />
+    <Compile Include="ViewModels\StudentVM.cs" />
+    <Compile Include="Views\AbsentaWindow.xaml.cs">
+      <DependentUpon>AbsentaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\An_studiuWindow.xaml.cs">
+      <DependentUpon>An_studiuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClasaWindow.xaml.cs">
+      <DependentUpon>ClasaWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\DiriginteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MaterieStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MaterieWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MedieWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NotaStudentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NotaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfesorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrpfesprPageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpecializareWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentPageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
